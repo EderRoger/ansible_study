@@ -1,6 +1,6 @@
 - hosts: all
   sudo: True
-  user: Vagrant
+  user: vagrant
   tasks:
     - name: "Update packages"
       shell: sudo apt-get update
