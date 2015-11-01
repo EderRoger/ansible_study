@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     testvm.vm.network :private_network, ip: "192.168.33.21"
 
     testvm.vm.provision :ansible do |ansible|
-      ansible.playbook = "webserver_advanced.yml"
+      ansible.playbook = "webserver_php.yml"
       ansible.verbose = "vvv"
     end
   end

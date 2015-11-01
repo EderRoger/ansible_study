@@ -1,0 +1,30 @@
+- hosts: all
+  sudo: True
+  user: vagrant
+  tasks:
+    - name: "update and install nginx"
+      apt: name=nginx state=latest update_cache=yes install_recommends=yes
+
+    - name: "install PHP"
+      apt: name=php5-fpm state=latest install_recommends=yes
+
+    - name: "Install mysql"
+      apt: name=mysql-server state=latest install_recommends=yes
+
+    - name: "create directory /opt/php_test"
+      shell: mkdir -p /opt/php_test
+
+    - name: "Copy test.nginx to /etc/nginx/sites-available/php"
+      copy: src=test.nginx dest=/etc/nginx/sites-available/php
+
+    - name: "activate"
+      shell: ln -fs /etc/nginx/sites-available/php /etc/nginx/sites-enabled/php
+
+    - name: "remove default site"
+      shell: rm -f /etc/nginx/sites-enabled/default
+
+    - name: "restart NGINX"
+      shell: service nginx restart
+
+    - name: "Create php test page"
+      copy: src=test.php dest=/opt/php_test
