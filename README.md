@@ -2,6 +2,6 @@
 
 # To test run
 
-`Vagrant up --provision`
+`vagrant up --provision`
 
 

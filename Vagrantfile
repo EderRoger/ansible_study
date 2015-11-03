@@ -7,6 +7,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "testvm" do |testvm|
     testvm.vm.box = "ubuntu/trusty64"
+#    testvm.vm.box = "ansible"
+ #   testvm.vm.box_url = "https://github.com/holms/vagrant-centos7-box/releases/download/7.1.1503.001/CentOS-7.1.1503-x86_64-netboot.box"
     testvm.vm.network :private_network, ip: "192.168.33.21"
 
     testvm.vm.provision :ansible do |ansible|
