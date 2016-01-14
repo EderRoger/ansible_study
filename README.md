@@ -3,5 +3,3 @@
 # To test run
 
 `vagrant up --provision`
-
-# Add Amazon and Digital Ocean tests
